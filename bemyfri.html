@@ -1,0 +1,47 @@
+<head>
+    <title>提交信息</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sedom/dist/sedom.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sedom/dist/sedom.min.js"></script>
+</head>
+
+<body>
+    <h4>请输入您的信息：<span class="theme">✨</span></h4>
+    <input type="text" name="" id="myname" placeholder="请输入名字">
+    <br/><br/>
+    <br/><br/>
+    <textarea name="myinfor" id="myinfor" style="resize:none;height: 100px;width: 300px;font-size: 18px;" placeholder="请输入介绍"></textarea>
+    <br/><br/>
+    <input type="button" name="" id="submit" value="提交" onclick="setinfo()">
+    <br/>
+    <p><a class="a-red" href="homepage.html" onclick="javascript:history.back(-1);">返回到主页</a></p>
+</body>
+
+<script>
+    let myname = document.getElementById('myname')
+    let myinfor = document.getElementById('myinfor')
+    function setinfo()
+    {
+        Response.redirect("URL");
+        let i;
+        for (i = 0; i >= 0;)
+        {
+            let ifname = localStorage.getItem('name' + i)
+            if (localStorage.getItem('name' + i) != null)
+            {
+                i++
+                console.log('key 存在' + 'key的值为' + ifname)
+                continue;
+            }
+            else
+            {
+                console.log('key 不存在')
+                localStorage.setItem('name' + i, myname.value)
+                localStorage.setItem('infor' + i, myinfor.value)
+                break;
+            }
+        }
+        myname.value = ''
+        myinfor.value = ''
+        alert('提交成功！')
+    }
+</script>

@@ -1,0 +1,55 @@
+<html lang="zh-CN">
+<head>
+    <title>我的页面</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sedom/dist/sedom.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sedom/dist/sedom.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h2>你好!<span class="theme">✨</span></h2>
+    <h4>欢迎来到我的页面~</h4>
+    <p>下面是我和我的朋友们的介绍:</p>
+    <h6>
+        <a class="a-blue" href=me.html>我</a>
+        <a class="a-red" href=tiger.html>虎哥</a>
+        <a class="a-pink" href=fwdao.html>刀哥</a>
+    </h6>
+    <p><a class="a-red" href=bemyfri.html>点击成为我的朋友</a>
+    <p id="dsb"></p>
+</body>
+
+<script>
+    function bemyfri()
+    {
+        let html
+        let i;
+        for (i = 0; i >= 0;)
+        {
+            let ifname = localStorage.getItem('name' + i)
+            let dsb = document.getElementById('dsb')
+            if (localStorage.getItem('name' + i) != null)
+            {
+                console.log('key 存在' + 'key的值为' + ifname)
+                console.log('这是第' + i + '个用户')
+                let items = ['1', '2', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+                let item = items[Math.floor(Math.random() * items.length)];
+                let item_color = ['a-black', 'a-red', 'a-pink', 'a-purple', 'a-violet', 'a-indigo', 'a-orange', 'a-indigo', 'a-blue', 'a-cyan', 'a-teal', 'a-yellow']
+                html = document.createElement('a');
+                html.setAttribute('href', './somebody.html?i=' + i);
+                html.setAttribute('class', item_color[item]);
+                html.innerText = ifname
+                dsb.appendChild(html)
+                i++
+                continue;
+            }
+            else 
+            {
+                console.log('key 不存在')
+                break;
+            }
+        }
+    }
+    bemyfri()
+</script>
+</html>

@@ -1,0 +1,23 @@
+<head>
+    <title>提交信息</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sedom/dist/sedom.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sedom/dist/sedom.min.js"></script>
+</head>
+
+<body>
+    <h1>大家好!<span class="theme">✨</span></h1>
+    <h2>我的名字是 <span id="myname"></span></h2>
+    <p id="myinfor"></p>
+    <p><a class="a-red" href="homepage.html" onclick="javascript:history.back(-1);">返回到主页</a></p>
+</body>
+
+<script>
+    let i = 0
+    let url = decodeURI(window.location.href);
+    let argsIndex = url.split("?i=");
+    i = argsIndex[1]
+    let myname = document.getElementById('myname');
+    myname.innerText = localStorage.getItem('name' + i);
+    let myinfor = document.getElementById('myinfor');
+    myinfor.innerText = localStorage.getItem('infor' + i)
+</script>
